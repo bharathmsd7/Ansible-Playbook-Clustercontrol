@@ -31,7 +31,10 @@
   apt: name=python3-pymysql state=present
   when:
     ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int > 18
-
+    
+- name: Install the Python MySQLB module
+  pip: name=MySQL-python
+    
 - name: Making sure MySQL is stopped after initial install.
   service: name={{ mysql_daemon }} state=stopped
   when: check_mysqld.rc != 0
