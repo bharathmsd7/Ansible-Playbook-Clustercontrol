@@ -1,1 +1,9 @@
 
+
+## Install ClusterControl
+- hosts:
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+  - { role: clustercontrol, tags: controller }
