@@ -21,21 +21,6 @@
   apt: name=python3-mysqldb state=present
   when:
     ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int > 18
- 
-- name: Making sure PyMySQL Python libraries are installed.
-  apt: name=python-pymysql state=present
-  when:
-    ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int <= 18
-
-- name: Making sure PyMySQL Python3 libraries are installed.
-  apt: name=python3-pymysql state=present
-  when:
-    ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int > 18
-    
-- name: Ensure Pip is installed.
-  package:
-    name: python3-pip
-    state: present
   
 - name: Install the Python MySQLB module
   pip: name=MySQL-python
