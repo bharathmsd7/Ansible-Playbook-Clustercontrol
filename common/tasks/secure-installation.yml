@@ -51,8 +51,6 @@
   with_items: "{{ mysql_anonymous_hosts.stdout_lines }}"
   become: yes
 
-
-
 - name: Check if ClusterControl Controller database is exist.
   command: mysqlshow -u root 'cmon' 'hosts'
   register: cmon_db
