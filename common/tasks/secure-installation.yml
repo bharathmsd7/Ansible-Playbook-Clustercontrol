@@ -51,15 +51,7 @@
   with_items: "{{ mysql_anonymous_hosts.stdout_lines }}"
   become: yes
 
-- name: Remove MySQL test database.
-  mysql_db:
-    login_host: localhost
-    login_user: "{{ mysql_root_username }}"
-    login_password: "{{ mysql_root_password }}"
-    name: "test"
-    state: absent
-  become: yes
-  become_user: "{{ cmon_ssh_user }}"
+
 
 - name: Check if ClusterControl Controller database is exist.
   command: mysqlshow -u root 'cmon' 'hosts'
